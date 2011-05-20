@@ -30,12 +30,12 @@ class Chef
       banner "knife client bulk delete REGEX (options)"
 
       def run 
-        if @name_args.length < 1
+        if name_args.length < 1
           ui.fatal("You must supply a regular expression to match the results against")
           exit 42
-        else
-          bulk_delete(Chef::ApiClient, "client", nil, nil, @name_args[0])
         end
+
+        bulk_delete(Chef::ApiClient, "client", nil, nil, name_args[0])
       end
     end
   end
